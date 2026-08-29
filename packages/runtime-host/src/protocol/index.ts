@@ -95,7 +95,7 @@ export const RUNTIME_HOST_PROTOCOL_VERSION = 0 as const;
 // Increment when the same protocol version no longer guarantees safe Client-Host
 // interoperability. Mismatches are rejected before domain commands are admitted.
 export const RUNTIME_HOST_COMPATIBILITY_EPOCH = 65 as const;
-// 65: Peer Mesh management exposes transit selection and runtime metrics.
+// 65: Peer Mesh queries expose one canonical transit selection and runtime metrics.
 // 64: execution.inspect drops the retired resolve operation. Older peers still
 // know execution.inspect.resolve and would send it only to fail mid-connection,
 // so removing it needs its own handshake boundary.
