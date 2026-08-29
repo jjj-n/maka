@@ -445,11 +445,7 @@ class PeerMeshNodeImpl implements PeerMeshNode {
         await this.#refreshLocalRoute();
         await this.#reconcileTransit();
         const stored = this.#store.read();
-        return peerMeshStatus(
-          findMesh(stored.meshes, invitation.meshId)!,
-          identity,
-          stored.routes,
-        );
+        return peerMeshStatus(findMesh(stored.meshes, invitation.meshId)!, identity, stored.routes);
       } finally {
         await stream.close().catch(() => undefined);
       }
@@ -960,11 +956,7 @@ class PeerMeshNodeImpl implements PeerMeshNode {
     await this.#refreshLocalRoute();
     await this.#reconcileTransit();
     const stored = this.#store.read();
-    return peerMeshStatus(
-      findMesh(stored.meshes, meshId)!,
-      this.#peer.identity(),
-      stored.routes,
-    );
+    return peerMeshStatus(findMesh(stored.meshes, meshId)!, this.#peer.identity(), stored.routes);
   }
 
   #acceptIncoming(stream: RuntimeHostPeerNativeStream): void {
